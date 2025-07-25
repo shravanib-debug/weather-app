@@ -1,0 +1,43 @@
+.toggle-container {
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: background 0.3s ease;
+  z-index: 999;
+}
+
+.toggle-container.dark {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.toggle-slider {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.toggle-container.light .toggle-slider {
+  transform: translateX(0);
+}
+
+.toggle-container.dark .toggle-slider {
+  transform: translateX(30px);
+}
+
+.icon {
+  font-size: 16px;
+  user-select: none;
+}

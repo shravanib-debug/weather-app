@@ -1,0 +1,139 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* prevent scrollbars */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Weather App Backgrounds */
+.weather-app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.weather-app.sunny {
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+.weather-app.cloudy {
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+}
+
+.weather-app.rainy {
+  background: linear-gradient(135deg, #667db6, #485563);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  color: white;
+}
+
+/* Floating Clouds */
+.cloud, .cloud2 {
+  position: absolute;
+  top: 20%; /* control vertical position */
+  width: 500px;
+  opacity: 0.4;
+  animation: floatClouds 60s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cloud2 {
+  top: 40%;
+  width: 500px;
+  opacity: 0.3;
+  animation: floatCloudsReverse 90s linear infinite;
+}
+
+@keyframes floatClouds {
+  from { left: -250px; }
+  to { left: 100%; }
+}
+
+@keyframes floatCloudsReverse {
+  from { left: 100%; }
+  to { left: -250px; }
+}
+
+/* Rain Drops */
+.rain {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: rainDrop 1s linear infinite;
+}
+
+@keyframes rainDrop {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
+}
+/* Input and Button */
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: #333;
+}
+
+h1 {
+  color: white;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 600px) {
+  .glass-card {
+    width: 80%;
+    padding: 20px;
+  }
+}
+
+.snowflake {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snowFall 5s linear infinite;
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0.1;
+  }
+}
+
